@@ -6,6 +6,9 @@ public class Enemy : MonoBehaviour
 {
     public float speed;
     public Rigidbody2D target;
+    public float health;
+    public float maxHealth;
+    public RuntimeAnimatorController[] animCon;
 
     bool isLive;
 
