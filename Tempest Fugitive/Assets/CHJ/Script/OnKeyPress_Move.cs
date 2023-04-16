@@ -9,7 +9,7 @@ public class OnKeyPress_Move : MonoBehaviour
     float vx = 0;
     float vy = 0;
     bool leftFlag = false;
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     bool die;
     // Start is called before the first frame update
     void Start()
@@ -28,24 +28,25 @@ public class OnKeyPress_Move : MonoBehaviour
         {
             vx = 0;
             vy = 0;
-            if (Input.GetKey("right"))
+            if (Input.GetKey("d"))
             {
                 vx = speed;
                 leftFlag = false;
             }
-            if (Input.GetKey("left"))
+            if (Input.GetKey("a"))
             {
                 vx = -speed;
                 leftFlag = true;
             }
-            if (Input.GetKey("up"))
+            if (Input.GetKey("w"))
             {
                 vy = speed;
             }
-            if (Input.GetKey("down"))
+            if (Input.GetKey("s"))
             {
                 vy = -speed;
             }
+
         }
     }
     private void FixedUpdate()
@@ -53,4 +54,10 @@ public class OnKeyPress_Move : MonoBehaviour
         rb.velocity = new Vector2(vx, vy);
         this.GetComponent<SpriteRenderer>().flipX = leftFlag;
     }
+
+    public void moveAttack()
+    {
+        this.rb.AddForce(Vector2.right * 100f, ForceMode2D.Impulse);
+    }
+
 }
