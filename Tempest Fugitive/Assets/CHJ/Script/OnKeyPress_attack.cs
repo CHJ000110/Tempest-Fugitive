@@ -107,17 +107,16 @@ public class OnKeyPress_attack : MonoBehaviour
                     switch (Flag)
                     {
                         case 1:
-                            this.GetComponent<OnKeyPress_Move>().rb.AddForce(Vector2.right * 1f, ForceMode2D.Impulse);
+                            this.GetComponent<OnKeyPress_Move>().moveAttack(1);
                             break;
                         case 2:
-                            this.GetComponent<OnKeyPress_Move>().rb.AddForce(Vector2.left * 1f, ForceMode2D.Impulse);
+                            this.GetComponent<OnKeyPress_Move>().moveAttack(2);
                             break;
                         case 3:
-
-                            this.GetComponent<OnKeyPress_Move>().rb.AddForce(Vector2.up * 1f, ForceMode2D.Impulse);
+                            this.GetComponent<OnKeyPress_Move>().moveAttack(3);
                             break;
                         case 4:
-                            this.GetComponent<OnKeyPress_Move>().rb.AddForce(Vector2.down * 1f, ForceMode2D.Impulse);
+                            this.GetComponent<OnKeyPress_Move>().moveAttack(4);
                             break;
                     }
                 }
