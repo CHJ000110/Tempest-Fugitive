@@ -36,6 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\CHJ\Script\Forever_MoveH.cs" />
      <Compile Include="Assets\CHJ\Script\OnKeyPress_attack.cs" />
      <Compile Include="Assets\CHJ\Script\PlayerHP_control.cs" />
      <Compile Include="Assets\CHJ\Script\OnKeyPress_Move.cs" />
@@ -46,7 +47,6 @@
      <Compile Include="Assets\JJH\Player.cs" />
      <Compile Include="Assets\JJH\Enemy.cs" />
      <Compile Include="Assets\JJH\GameManager.cs" />
-     <Compile Include="Assets\CHJ\Script\Forever_MoveH.cs" />
      <None Include="Assets\CHJ\더미파일.txt" />
      <None Include="Assets\JJH\더미파일.txt" />
      <None Include="Assets\KMG\더미파일.txt" />

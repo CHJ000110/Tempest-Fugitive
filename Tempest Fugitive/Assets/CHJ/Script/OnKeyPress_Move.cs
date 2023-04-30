@@ -5,6 +5,7 @@ using UnityEngine;
 public class OnKeyPress_Move : MonoBehaviour
 {
     public float speed = 10;
+    public float MaxSpeed = 2;
 
     float vx = 0;
     float vy = 0;
@@ -30,34 +31,43 @@ public class OnKeyPress_Move : MonoBehaviour
             vy = 0;
             if (Input.GetKey("d"))
             {
-                vx = speed;
+                vx = 1;
                 leftFlag = false;
             }
-            if (Input.GetKey("a"))
+            else if (Input.GetKey("a"))
             {
-                vx = -speed;
+                vx = -1;
                 leftFlag = true;
             }
+
             if (Input.GetKey("w"))
             {
-                vy = speed;
+                vy = 1;
             }
-            if (Input.GetKey("s"))
+            else if (Input.GetKey("s"))
             {
-                vy = -speed;
+                vy = -1;
             }
 
+        }
+        else{
+            rb.velocity = new Vector2(0, 0);
         }
     }
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(vx, vy);
+        //rb.velocity = new Vector2(vx, vy);
+        float speedx = Mathf.Abs(this.rb.velocity.x);
+        float speedy = Mathf.Abs(this.rb.velocity.y);
+        if(speedx < MaxSpeed && speedy < MaxSpeed){
+            this.rb.AddForce(new Vector2(vx * speed ,vy * speed));
+        }
         this.GetComponent<SpriteRenderer>().flipX = leftFlag;
     }
 
     public void moveAttack()
     {
-        this.rb.AddForce(Vector2.right * 100f, ForceMode2D.Impulse);
+        this.rb.AddForce(Vector2.right * 1f, ForceMode2D.Impulse);
     }
 
 }
