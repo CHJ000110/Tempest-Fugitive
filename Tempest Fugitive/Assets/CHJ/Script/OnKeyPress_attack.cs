@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class OnKeyPress_attack : MonoBehaviour
 {
-    public GameObject newPrefab;
+    public GameObject farAttack;
+    public GameObject nearAttack;
     public int maxCount = 20;
     public int speed = 5;
     public float force = 1000;
@@ -13,9 +14,6 @@ public class OnKeyPress_attack : MonoBehaviour
     public bool pushFlag;
 
     Rigidbody2D rb;
-    //false는 근접 true는 원거리
-    public bool ataackFlag;
-    public bool ataackFlag2;
     public float timer;
     int waitingTime;
     // Start is called before the first frame update
@@ -23,8 +21,6 @@ public class OnKeyPress_attack : MonoBehaviour
     {
         Flag = 1;
         pushFlag = false;
-        ataackFlag2 = false;
-        ataackFlag = true;
         timer = 0;
         waitingTime = 1;
     }
@@ -54,19 +50,19 @@ public class OnKeyPress_attack : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(1))
         {
-            ataackFlag = !ataackFlag;
+            this.gameObject.GetComponent<PlayerStatus>().atackFlag = !this.gameObject.GetComponent<PlayerStatus>().atackFlag;
         }
         timer += Time.deltaTime;
         if (timer >= waitingTime)
         {
-            if(ataackFlag){
+            if(this.gameObject.GetComponent<PlayerStatus>().atackFlag){
                 if (Input.GetMouseButtonDown(0))
                 {
                     timer = 0;
                     Vector3 newPos = this.transform.position;
                     newPos.z = -5;
 
-                    GameObject newGO = Instantiate(newPrefab) as GameObject;
+                    GameObject newGO = Instantiate(farAttack) as GameObject;
                     Rigidbody2D rb = newGO.GetComponent<Rigidbody2D>();
 
                     switch (Flag)
@@ -102,20 +98,43 @@ public class OnKeyPress_attack : MonoBehaviour
                 //근접 공격
                 if (Input.GetMouseButtonDown(0))
                 {
-                    timer = 0;
-                    ataackFlag2 = true;
+                    timer = 0;Vector3 newPos = this.transform.position;
+                    newPos.z = -5;
+
+                    GameObject newGO = Instantiate(nearAttack) as GameObject;
+                    Rigidbody2D rb = newGO.GetComponent<Rigidbody2D>();
+
                     switch (Flag)
                     {
                         case 1:
+                            newPos.x += 1f;
+                            newGO.transform.position = newPos;
+                            this.GetComponent<OnKeyPress_Move>().attackMove = false;
+                            this.GetComponent<OnKeyPress_Move>().moveZero();
                             this.GetComponent<OnKeyPress_Move>().moveAttack(1);
                             break;
                         case 2:
+                            newPos.x -= 1f;
+                            newGO.transform.position = newPos;
+                            newGO.transform.Rotate(0, 0, 180);
+                            this.GetComponent<OnKeyPress_Move>().attackMove = false;
+                            this.GetComponent<OnKeyPress_Move>().moveZero();
                             this.GetComponent<OnKeyPress_Move>().moveAttack(2);
                             break;
                         case 3:
+                            newPos.y += 1f;
+                            newGO.transform.position = newPos;
+                            newGO.transform.Rotate(0, 0, 90);
+                            this.GetComponent<OnKeyPress_Move>().attackMove = false;
+                            this.GetComponent<OnKeyPress_Move>().moveZero();
                             this.GetComponent<OnKeyPress_Move>().moveAttack(3);
                             break;
                         case 4:
+                            newPos.y -= 1f;
+                            newGO.transform.position = newPos;
+                            newGO.transform.Rotate(0, 0, 270);
+                            this.GetComponent<OnKeyPress_Move>().attackMove = false;
+                            this.GetComponent<OnKeyPress_Move>().moveZero();
                             this.GetComponent<OnKeyPress_Move>().moveAttack(4);
                             break;
                     }

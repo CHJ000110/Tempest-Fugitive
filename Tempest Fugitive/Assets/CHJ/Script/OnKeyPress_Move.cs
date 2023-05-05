@@ -4,23 +4,20 @@ using UnityEngine;
 
 public class OnKeyPress_Move : MonoBehaviour
 {
-    public float speed = 10;
-    public float MaxSpeed = 2;
-    public bool move; 
-
     float vx = 0;
     float vy = 0;
     bool leftFlag = false;
     public Rigidbody2D rb;
     bool die;
+
+    public bool attackMove;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = this.gameObject.GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        speed = 3;
-        move = false;
+        attackMove = true;
     }
 
     // Update is called once per frame
@@ -34,12 +31,12 @@ public class OnKeyPress_Move : MonoBehaviour
             if (Input.GetKey("d"))
             {
                 vx = 1;
-                leftFlag = false;
+                leftFlag = true;
             }
             else if (Input.GetKey("a"))
             {
                 vx = -1;
-                leftFlag = true;
+                leftFlag = false;
             }
 
             if (Input.GetKey("w"))
@@ -53,11 +50,12 @@ public class OnKeyPress_Move : MonoBehaviour
 
             if( Input.GetKey("d") || Input.GetKey("a") || Input.GetKey("w")|| Input.GetKey("s"))
             {
-                move = true;
+                
+                this.gameObject.GetComponent<PlayerStatus>().move = true;
             }
             else
             {
-                moveZero();
+                moveZero3();
             }
 
         }
@@ -67,49 +65,57 @@ public class OnKeyPress_Move : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(move)
+        if(this.gameObject.GetComponent<PlayerStatus>().move && attackMove)
         {
-            rb.velocity = new Vector2(vx * speed , vy* speed);
+            rb.velocity = new Vector2(vx * this.gameObject.GetComponent<PlayerStatus>().speed , vy* this.gameObject.GetComponent<PlayerStatus>().speed);
         }
-        /*
-        float speedx = Mathf.Abs(this.rb.velocity.x);
-        float speedy = Mathf.Abs(this.rb.velocity.y);
-        if(speedx < MaxSpeed && speedy < MaxSpeed){
-            this.rb.AddForce(new Vector2(vx * speed ,vy * speed));
-        }*/
         this.GetComponent<SpriteRenderer>().flipX = leftFlag;
     }
 
     public void moveAttack(float Flag)
-    { 
+    {
         switch (Flag)
         {
             case 1:
-                this.rb.AddForce(Vector2.right * 5f, ForceMode2D.Impulse);
+                this.rb.AddForce(Vector2.right * 7f, ForceMode2D.Impulse);
                 break;
             case 2:
-                this.rb.AddForce(Vector2.left * 5f, ForceMode2D.Impulse);
+                this.rb.AddForce(Vector2.left * 7f, ForceMode2D.Impulse);
                 break;
             case 3:
-                this.rb.AddForce(Vector2.up * 5f, ForceMode2D.Impulse);
+                this.rb.AddForce(Vector2.up * 7f, ForceMode2D.Impulse);
                 break;
             case 4:
-                this.rb.AddForce(Vector2.down * 5f, ForceMode2D.Impulse);
+                this.rb.AddForce(Vector2.down * 7f, ForceMode2D.Impulse);
                 break;
-        }
+        } 
+        Invoke("moveZero2", 0.15f);
+    }
+    
+    public void damageMove(Vector2 dir)
+    {
+        this.rb.AddForce(dir * 7f, ForceMode2D.Impulse);
         Invoke("moveZero2", 0.2f);
     }
 
     public void moveZero()
     {
-        if (move)
+        if (!attackMove)
         {
-            move = false;
             rb.velocity = Vector2.zero;
         }
     }
     public void moveZero2()
     {
         rb.velocity = Vector2.zero;
+        attackMove = true;
+    }
+    public void moveZero3()
+    {
+        if (this.gameObject.GetComponent<PlayerStatus>().move)
+        {
+            this.gameObject.GetComponent<PlayerStatus>().move = false;
+            rb.velocity = Vector2.zero;
+        }
     }
 }
