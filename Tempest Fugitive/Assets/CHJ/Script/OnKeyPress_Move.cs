@@ -7,7 +7,7 @@ public class OnKeyPress_Move : MonoBehaviour
     float vx = 0;
     float vy = 0;
     bool leftFlag = false;
-    public Rigidbody2D rb;
+    Rigidbody2D rb;
     bool die;
 
     public bool attackMove;
