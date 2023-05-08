@@ -50,6 +50,7 @@ public class Enemy1 : MonoBehaviour
         spriteRenderer.sprite = sprites[0];
     }
 
+/*
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "BorderBullet") //���;��ִ�
@@ -60,5 +61,5 @@ public class Enemy1 : MonoBehaviour
 
             Destroy(collision.gameObject);    //�ǰݽ� �÷��̾� �Ѿ˻���
         }
-    }
+    }*/
 }

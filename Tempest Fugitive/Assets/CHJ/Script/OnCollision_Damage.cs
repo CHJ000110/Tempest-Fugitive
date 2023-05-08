@@ -5,7 +5,6 @@ using UnityEngine;
 public class OnCollision_Damage : MonoBehaviour
 {
     // Start is called before the first frame update
-    public string monster;
     Rigidbody2D rb;
     void Start()
     {
@@ -20,7 +19,7 @@ public class OnCollision_Damage : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.name == monster)
+        if(other.gameObject.tag == "Enemy")
         {
             Vector2 dir = (this.transform.position - other.transform.position).normalized;
             this.GetComponent<OnKeyPress_Move>().attackMove = false;

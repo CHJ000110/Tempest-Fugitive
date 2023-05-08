@@ -22,6 +22,7 @@ public class characteristic : MonoBehaviour
         {
             other.gameObject.GetComponent<PlayerStatus>().farAttackPoint -= 3;
             other.gameObject.GetComponent<PlayerStatus>().nearAttackPoint += 5;
+            other.gameObject.GetComponent<OnKeyPress_Move>().showStatus();
             Destroy(this.gameObject);
         }
     }

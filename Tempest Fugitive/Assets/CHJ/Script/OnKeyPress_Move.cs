@@ -58,6 +58,10 @@ public class OnKeyPress_Move : MonoBehaviour
                 moveZero3();
             }
 
+            if (Input.GetKeyDown("f"))
+            {
+                showStatus();
+            }
         }
         else{
             rb.velocity = new Vector2(0, 0);
@@ -117,5 +121,12 @@ public class OnKeyPress_Move : MonoBehaviour
             this.gameObject.GetComponent<PlayerStatus>().move = false;
             rb.velocity = Vector2.zero;
         }
+    }
+
+    public void showStatus(){
+
+        print("현재 체력 : " + this.gameObject.GetComponent<PlayerStatus>().playerHP);
+        print("현재 급거리 공격력 : " + this.gameObject.GetComponent<PlayerStatus>().nearAttackPoint);
+        print("현재 원거리 공격력 : " + this.gameObject.GetComponent<PlayerStatus>().farAttackPoint);
     }
 }

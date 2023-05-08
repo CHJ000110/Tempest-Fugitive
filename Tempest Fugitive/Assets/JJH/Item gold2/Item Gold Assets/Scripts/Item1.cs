@@ -9,6 +9,12 @@ public class Item1 : MonoBehaviour
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        rigid.AddForce(Vector2.down * 1/2, ForceMode2D.Impulse); //�����ۼӵ�
+    }
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
     }
 }
