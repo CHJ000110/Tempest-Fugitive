@@ -11,13 +11,13 @@ C:\Program Files\Unity\Hub\Editor\2021.3.0f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-D:/Unity/Tempest Fugitive/Tempest-Fugitive/Tempest Fugitive
+D:/Unity/Tempest-Fugitive/Tempest Fugitive
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-12543
-Successfully changed project path to: D:/Unity/Tempest Fugitive/Tempest-Fugitive/Tempest Fugitive
-D:/Unity/Tempest Fugitive/Tempest-Fugitive/Tempest Fugitive
+4440
+Successfully changed project path to: D:/Unity/Tempest-Fugitive/Tempest Fugitive
+D:/Unity/Tempest-Fugitive/Tempest Fugitive
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -47,11 +47,11 @@ D:/Unity/Tempest Fugitive/Tempest-Fugitive/Tempest Fugitive
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 853.56 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 74.84 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.0f1 (6eacc8284459)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.0f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path D:/Unity/Tempest Fugitive/Tempest-Fugitive/Tempest Fugitive/Assets
+[Subsystems] Discovering subsystems at path D:/Unity/Tempest-Fugitive/Tempest Fugitive/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
@@ -63,42 +63,138 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.0f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.0f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.0f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56680
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56276
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.0f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.095649 seconds.
+Registered in 0.011202 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 90.41 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 72.45 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.616 seconds
+- Completed reload, in  0.553 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1616ms)
-		BeginReloadAssembly (301ms)
+	ReloadAssembly (554ms)
+		BeginReloadAssembly (83ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (880ms)
-			LoadAssemblies (298ms)
+		EndReloadAssembly (366ms)
+			LoadAssemblies (79ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (479ms)
+			SetupTypeCache (85ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (17ms)
-			SetupLoadedEditorAssemblies (226ms)
+			RebuildScriptCaches (21ms)
+			SetupLoadedEditorAssemblies (215ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (9ms)
+				InitializePlatformSupportModulesInManaged (10ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (90ms)
+				RefreshPlugins (73ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (86ms)
-				ProcessInitializeOnLoadMethodAttributes (41ms)
+				ProcessInitializeOnLoadAttributes (95ms)
+				ProcessInitializeOnLoadMethodAttributes (37ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 1.154378 seconds.
+Registered in 0.005010 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Unity\Tempest-Fugitive\Tempest Fugitive\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory doesn't match image D:\Unity\Tempest-Fugitive\Tempest Fugitive\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 74.96 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.922 seconds
+Domain Reload Profiling:
+	ReloadAssembly (923ms)
+		BeginReloadAssembly (107ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (16ms)
+		EndReloadAssembly (721ms)
+			LoadAssemblies (102ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (173ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (47ms)
+			SetupLoadedEditorAssemblies (380ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (75ms)
+				BeforeProcessingInitializeOnLoad (89ms)
+				ProcessInitializeOnLoadAttributes (164ms)
+				ProcessInitializeOnLoadMethodAttributes (34ms)
+				AfterProcessingInitializeOnLoad (12ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Refreshing native plugins compatible for Editor in 0.73 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3952 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 34 unused Assets / (Unknown). Loaded Objects now: 4413.
+Memory consumption went from 152.2 MB to 152.6 MB.
+Total: 3.371600 ms (FindLiveObjects: 0.277200 ms CreateObjectMapping: 0.106200 ms MarkObjects: 2.924000 ms  DeleteObjects: 0.062900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 94290.184860 seconds.
+  path: Assets/CHJ/Image/Enemy1.prefab
+  artifactKey: Guid(010897c55fbdf294e83cb5ee7558e41e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CHJ/Image/Enemy1.prefab using Guid(010897c55fbdf294e83cb5ee7558e41e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd43ef155319f70025940a2d631a28a4c') in 0.110431 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/CHJ/Script/Enemy
+  artifactKey: Guid(14dc7ba79d5161d4992a9e47bf70ea0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CHJ/Script/Enemy using Guid(14dc7ba79d5161d4992a9e47bf70ea0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0f75a082139f3b8f46ec39ebff14fe8') in 0.006345 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/CHJ/Image/NearAttack.prefab
+  artifactKey: Guid(823d09e5593a80740b02043e3bc345ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CHJ/Image/NearAttack.prefab using Guid(823d09e5593a80740b02043e3bc345ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b25c272f42ab9fc71bbf5d162d23bcd') in 0.013758 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/CHJ/Image/Enemy3.prefab
+  artifactKey: Guid(58685b39aba7cbc4199cc346e139c151) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CHJ/Image/Enemy3.prefab using Guid(58685b39aba7cbc4199cc346e139c151) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90b606acca3e71212e7444f3839a0100') in 0.011396 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/CHJ/Image/KakaoTalk_20230506_011953615.png
+  artifactKey: Guid(0f04f12e1884e024aa450e001fa6b884) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CHJ/Image/KakaoTalk_20230506_011953615.png using Guid(0f04f12e1884e024aa450e001fa6b884) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1c981e2669b1c5e44cd533e58745031') in 0.034545 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 20.896035 seconds.
+  path: Assets/CHJ/Script/Enemy/Circle.prefab
+  artifactKey: Guid(da73e998b650256418ec5eaa83a2321b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CHJ/Script/Enemy/Circle.prefab using Guid(da73e998b650256418ec5eaa83a2321b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db0fe99811ae019547786639ce312a72') in 0.012463 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
