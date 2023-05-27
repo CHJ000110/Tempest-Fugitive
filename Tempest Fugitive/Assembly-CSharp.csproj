@@ -73,6 +73,7 @@
      <Compile Include="Assets\CHJ\Script\characteristic.cs" />
      <None Include="Assets\CHJ\더미파일.txt" />
      <None Include="Assets\KMG\더미파일.txt" />
+     <None Include="Assets\CHJ\sss\aaaa.txt" />
      <None Include="Assets\PSH\더미파일.txt" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
