@@ -1,4 +1,4 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,18 +28,18 @@ public class PlayerStatus : MonoBehaviour
         playerHPMax = 50;
         move = false;
 
-        waitingTime = 0.8f; 
-        farAttackPoint = 6; 
+        waitingTime = 0.8f;
+        farAttackPoint = 6;
         nearAttackPoint = 10;
 
         atackFlag = true;
-        criticalPercentage = 10; 
+        criticalPercentage = 10;
         criticalDamage = 150;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

@@ -12,15 +12,16 @@ public class OnCollision_Damage_FarAttack : MonoBehaviour
         target = GameObject.FindWithTag("Player");
         int i = Random.Range(0, 100);
         attackpoint = target.GetComponent<PlayerStatus>().farAttackPoint;
-        if(i < target.GetComponent<PlayerStatus>().criticalPercentage){
-            attackpoint = (attackpoint/ 100) * target.GetComponent<PlayerStatus>().criticalDamage;
+        if (i < target.GetComponent<PlayerStatus>().criticalPercentage)
+        {
+            attackpoint = (attackpoint / 100) * target.GetComponent<PlayerStatus>().criticalDamage;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnCollisionEnter2D(Collision2D other)

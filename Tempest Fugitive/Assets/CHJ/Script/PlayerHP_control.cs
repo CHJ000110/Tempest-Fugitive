@@ -41,6 +41,11 @@ public class PlayerHP_control : MonoBehaviour
         {
             playerHP = playerHPMax;
         }
+
+        if (playerHP < 0)
+        {
+            target.GetComponent<PlayerStatus>().playerHP = 0;
+        }
     }
 
     public void HPdamage(float damage)

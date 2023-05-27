@@ -48,9 +48,9 @@ public class OnKeyPress_Move : MonoBehaviour
                 vy = -1;
             }
 
-            if( Input.GetKey("d") || Input.GetKey("a") || Input.GetKey("w")|| Input.GetKey("s"))
+            if (Input.GetKey("d") || Input.GetKey("a") || Input.GetKey("w") || Input.GetKey("s"))
             {
-                
+
                 this.gameObject.GetComponent<PlayerStatus>().move = true;
             }
             else
@@ -63,15 +63,16 @@ public class OnKeyPress_Move : MonoBehaviour
                 showStatus();
             }
         }
-        else{
+        else
+        {
             rb.velocity = new Vector2(0, 0);
         }
     }
     private void FixedUpdate()
     {
-        if(this.gameObject.GetComponent<PlayerStatus>().move && attackMove)
+        if (this.gameObject.GetComponent<PlayerStatus>().move && attackMove)
         {
-            rb.velocity = new Vector2(vx * this.gameObject.GetComponent<PlayerStatus>().speed , vy* this.gameObject.GetComponent<PlayerStatus>().speed);
+            rb.velocity = new Vector2(vx * this.gameObject.GetComponent<PlayerStatus>().speed, vy * this.gameObject.GetComponent<PlayerStatus>().speed);
         }
         this.GetComponent<SpriteRenderer>().flipX = leftFlag;
     }
@@ -92,15 +93,15 @@ public class OnKeyPress_Move : MonoBehaviour
             case 4:
                 this.rb.AddForce(Vector2.down * 7f, ForceMode2D.Impulse);
                 break;
-        } 
+        }
         Invoke("moveZero2", 0.15f);
     }
-    
+
     public void damageMove(Vector2 dir)
     {
         this.rb.AddForce(dir * 7f, ForceMode2D.Impulse);
         Invoke("moveZero2", 0.2f);
-        Invoke( "DamageBoolSelect",0.2f);
+        Invoke("DamageBoolSelect", 0.2f);
     }
 
     public void moveZero()
@@ -124,7 +125,8 @@ public class OnKeyPress_Move : MonoBehaviour
         }
     }
 
-    public void showStatus(){
+    public void showStatus()
+    {
 
         Debug.Log("현재 체력 : " + this.gameObject.GetComponent<PlayerStatus>().playerHP);
         Debug.Log("현재 급거리 공격력 : " + this.gameObject.GetComponent<PlayerStatus>().nearAttackPoint);

@@ -17,7 +17,8 @@ public class OnCollision_Damage : MonoBehaviour
 
     }
 
-    private void OnCollisionStay2D(Collision2D other) {
+    private void OnCollisionStay2D(Collision2D other)
+    {
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyBullet")
         {
             float attackPoint = other.gameObject.GetComponent<EnemyAttack>().attackpoint;
@@ -34,3 +35,4 @@ public class OnCollision_Damage : MonoBehaviour
         }
     }
 }
+
