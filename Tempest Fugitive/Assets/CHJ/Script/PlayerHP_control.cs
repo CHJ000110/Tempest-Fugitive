@@ -5,21 +5,27 @@ using UnityEngine.SceneManagement;
 public class PlayerHP_control : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int playerHP = 50;
-    public int playerHPMax = 50;
+    public GameObject target;
+    float playerHP;
+    float playerHPMax;
     public bool die;
+    public bool damageBool;
     float accumTime;
     void Start()
     {
-        playerHP = 50;
-        playerHPMax = 50;
+        target = GameObject.FindWithTag("Player");
+        playerHP = target.GetComponent<PlayerStatus>().playerHP;
+        playerHPMax = target.GetComponent<PlayerStatus>().playerHPMax;
         die = false;
+        damageBool = false;
         accumTime = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        playerHP = target.GetComponent<PlayerStatus>().playerHP;
+        playerHPMax = target.GetComponent<PlayerStatus>().playerHPMax;
         /*if (playerHP <= 0)
         {
             this.gameObject.GetComponent<OnkeyPress_ChangeAnime>().DieAnim();
@@ -35,5 +41,10 @@ public class PlayerHP_control : MonoBehaviour
         {
             playerHP = playerHPMax;
         }
+    }
+
+    public void HPdamage(float damage)
+    {
+        target.GetComponent<PlayerStatus>().playerHP -= damage;
     }
 }

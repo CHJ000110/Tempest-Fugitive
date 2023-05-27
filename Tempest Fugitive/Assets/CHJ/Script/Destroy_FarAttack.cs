@@ -6,9 +6,10 @@ public class Destroy_FarAttack : MonoBehaviour
 {
     // Start is called before the first frame update
     public string monster;
-    public float limitSec = 1f;
+    public float limitSec = 0.5f;
     void Start()
     {
+        limitSec = 0.5f;
         Destroy(this.gameObject, limitSec);
     }
 

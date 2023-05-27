@@ -100,6 +100,7 @@ public class OnKeyPress_Move : MonoBehaviour
     {
         this.rb.AddForce(dir * 7f, ForceMode2D.Impulse);
         Invoke("moveZero2", 0.2f);
+        Invoke( "DamageBoolSelect",0.2f);
     }
 
     public void moveZero()
@@ -125,8 +126,12 @@ public class OnKeyPress_Move : MonoBehaviour
 
     public void showStatus(){
 
-        print("현재 체력 : " + this.gameObject.GetComponent<PlayerStatus>().playerHP);
-        print("현재 급거리 공격력 : " + this.gameObject.GetComponent<PlayerStatus>().nearAttackPoint);
-        print("현재 원거리 공격력 : " + this.gameObject.GetComponent<PlayerStatus>().farAttackPoint);
+        Debug.Log("현재 체력 : " + this.gameObject.GetComponent<PlayerStatus>().playerHP);
+        Debug.Log("현재 급거리 공격력 : " + this.gameObject.GetComponent<PlayerStatus>().nearAttackPoint);
+        Debug.Log("현재 원거리 공격력 : " + this.gameObject.GetComponent<PlayerStatus>().farAttackPoint);
+    }
+    public void DamageBoolSelect()
+    {
+        gameObject.GetComponent<PlayerHP_control>().damageBool = false;
     }
 }

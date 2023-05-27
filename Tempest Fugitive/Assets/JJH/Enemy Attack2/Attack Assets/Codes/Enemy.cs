@@ -21,15 +21,19 @@ public class Enemy : MonoBehaviour
     Vector3 firstVec;
     public bool returnMovebool = false; //����ִ���Ȯ��
 
+    public bool attackMove;
     void Start()
     {
-
+        movebool = true;
         returnMovebool = false;
+        attackMove = true;
         firstVec = this.transform.position;
-        speed = 1;
+        speed = 10;
         health = 50;
         MaxHealth = 50;
         target = GameObject.FindWithTag("Player");
+        rigid.gravityScale = 0;
+        gameObject.GetComponent<EnemyAttack>().attackpoint = 5;
     }
 
     void Awake()
@@ -49,13 +53,14 @@ public class Enemy : MonoBehaviour
         {
             rigid.velocity = new Vector2(0,0);
         }
-        else{
+        else if (attackMove){
             Vector3 dirVec = (target.transform.position - this.transform.position).normalized;
             //rigid.MovePosition(rigid.position + nextVec);
             //rigid.AddForce(nextVec, ForceMode2D.Impulse);
             rigid.velocity = new Vector2(dirVec.x, dirVec.y);
 
         }
+
         if (returnMovebool)
         {
             if(this.transform.position.x <= firstVec.x+0.2f && this.transform.position.x >= firstVec.x-0.2f && this.transform.position.y <= firstVec.y + 0.2f &&this.transform.position.y >= firstVec.y - 0.2f)
@@ -69,6 +74,7 @@ public class Enemy : MonoBehaviour
                 //rigid.MovePosition(rigid.position + nextVec);
                 //rigid.AddForce(nextVec, ForceMode2D.Impulse);
                 rigid.velocity = new Vector2(dirVec1.x, dirVec1.y);
+                spriter.flipX = firstVec.x > this.gameObject.transform.position.x;
             }
         }
     }
@@ -80,7 +86,7 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        spriter.flipX = target.transform.position.x < this.gameObject.transform.position.x;
+        spriter.flipX = target.transform.position.x > this.gameObject.transform.position.x;
     }
 
 
@@ -88,7 +94,7 @@ public class Enemy : MonoBehaviour
     {
         if(health <= 0){
             isLive = false;
-
+            health = 0;
             int ran = Random.Range(0, 10); //���;��ָ����� ����Ȯ��           
             if (ran < 10) //����
             {
@@ -102,12 +108,46 @@ public class Enemy : MonoBehaviour
     public void OnDamage(float ataackpoint)
     {
         health -= ataackpoint;
-        print("남은 몬스터 HP : "+health);
+        if (health <= 0)
+        {
+            health = 0;
+        }
+        Debug.Log("남은 몬스터 HP : "+health);
     }
 
+    public void damageMove(Vector2 dir)
+    {
+        this.rigid.AddForce(dir * 7f, ForceMode2D.Impulse);
+        Invoke("moveZero2", 0.2f);
+    }
+
+    public void moveZero()
+    {
+        if (!attackMove)
+        {
+            rigid.velocity = Vector2.zero;
+        }
+    }
+    public void moveZero2()
+    {
+        rigid.velocity = Vector2.zero;
+        attackMove = true;
+    }
     void OnEnable()
     {
         isLive = true;
         health = MaxHealth;
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "PlayerBullet")
+        {
+            OnDamage(gameObject.GetComponent<EnemyAttack>().attackpointDamage);
+            Vector2 dir = (this.transform.position - other.transform.position).normalized;
+            attackMove = false;
+            moveZero();
+            damageMove(dir);
+        }
     }
 }

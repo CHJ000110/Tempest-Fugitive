@@ -6,8 +6,8 @@ public class PlayerStatus : MonoBehaviour
 {
     public bool move;
     public float speed;
-    public int playerHP;//현재체력
-    public int playerHPMax;//최대체력
+    public float playerHP;//현재체력
+    public float playerHPMax;//최대체력
 
 
     public bool atackFlag;//false는 근접 true는 원거리
